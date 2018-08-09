@@ -44,17 +44,19 @@ void main() {
   /* Statistics and Printing Functions Go Here */
   int ma,mi,mea,med;
   printf("Printing initial array");
-  print_array(test,SIZE);
-  sort_array(test,SIZE);
-  ma= find_maximum(test,SIZE);
-  mi= find_minimum(test,SIZE); 
+  print_array(test,SIZE); // to print the array
+  sort_array(test,SIZE); // to sort in descending order
+	
+// passing the sorted array for the following functions	
+  ma= find_maximum(test,SIZE); // calling function tofind maximum
+  mi= find_minimum(test,SIZE); // calling function to find minimum
   mea= find_mean(test,SIZE);					  
   med= find_median(test,SIZE); 
-  print_statistics(ma,mi,mea,med);
+  print_statistics(ma,mi,mea,med);// to print stats
 }
 
 
-void print_array(unsigned char *t, unsigned int size)
+void print_array(unsigned char *t, unsigned int size)  // function to print array
 {
 int i;
 printf("\n Array- ");
@@ -67,39 +69,38 @@ printf("\n");
 int find_maximum(unsigned char *t,  unsigned int size)
 {
 int i,max;
-max=t[0];
+max=t[0];  // initialise first element of array to max
 for(i=0;i<size;i++)
-{if(max<=t[i])
+{if(max<=t[i])    // if an element is > than max, then max is assigned that element
 	max=t[i];
 }
 return max;
 }
 
-int find_minimum(unsigned char *t, unsigned int size)
+int find_minimum(unsigned char *t, unsigned int size) // function to find minimum
 {
-int i,min;
-min=t[0];
+int i,min; 
+min=t[0]; 
 for(i=0;i<size;i++)
-{if(min>=t[i])
+{if(min>=t[i])   // if an element in the array is <= min, then min is assigned that element.
 	        min=t[i];
 }
 return min;
-
 }
 
 int find_mean(unsigned char *t,unsigned int size)
 { 
 int i,tot=0,me=0;
 for(i=0;i<size;i++)
-{tot+=t[i];}
-me=tot/size;
-return me;
+{tot+=t[i];}   // calculate the sum of all elements
+me=tot/size;  // finding average
+return me; 
 }
 
 int find_median(unsigned char *t, unsigned int size)
 {
 int m;
-m=(t[size/2]+t[size/2 -1])/2;
+m=(t[size/2]+t[size/2 -1])/2; // calculating median for even number of elements
 return m;
 
 }
@@ -107,24 +108,22 @@ return m;
 void sort_array(unsigned char *test, unsigned int size)
 {
 int i,j,c;
-for(i=0;i<size-1;i++)
+for(i=0;i<size-1;i++)    // selection sort
 { for(j=i;j<size;j++)
-	{ if(test[j]>test[i])
-		{ c=test[j];
-			test[j]=test[i];
-			test[i]=c;
+	{ if(test[j]>test[i])    // arraging elements from large to small
+		{ c=test[j];     // swapping 2 elements   
+		  test[j]=test[i];
+      		  test[i]=c;
 		}
 	}
 }
 printf("\n Now sorting the array in descending order...\n");
-print_array(test,size);
+print_array(test,size); // calling function to display sorted array
 }
 
 void print_statistics(int a, int b, int c, int d)
 {
 printf("\n The statistics of the array are as follows:");
-printf("\n maximum:%d\n Minimum:%d\n Mean:%d\n Median:%d\n",a,b,c,d);
+printf("\n maximum:%d\n Minimum:%d\n Mean:%d\n Median:%d\n",a,b,c,d);  // displaying stats
 }
 
-
-/* Add other Implementation File Code Here */
