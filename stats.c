@@ -53,33 +53,77 @@ void main() {
   print_statistics(ma,mi,mea,med);
 }
 
+
 void print_array(unsigned char *t, unsigned int size)
 {
+int i;
+printf("\n Array- ");
+for(i=0;i<size;i++)
+	printf("%d,",t[i]);
+printf("\n");
 
 }
 
 int find_maximum(unsigned char *t,  unsigned int size)
 {
+int i,max;
+max=t[0];
+for(i=0;i<size;i++)
+{if(max<=t[i])
+	max=t[i];
+}
+return max;
 }
 
 int find_minimum(unsigned char *t, unsigned int size)
 {
+int i,min;
+min=t[0];
+for(i=0;i<size;i++)
+{if(min>=t[i])
+	        min=t[i];
+}
+return min;
+
 }
 
 int find_mean(unsigned char *t,unsigned int size)
 { 
+int i,tot=0,me=0;
+for(i=0;i<size;i++)
+{tot+=t[i];}
+me=tot/size;
+return me;
 }
 
 int find_median(unsigned char *t, unsigned int size)
 {
+int m;
+m=(t[size/2]+t[size/2 -1])/2;
+return m;
+
 }
 
 void sort_array(unsigned char *test, unsigned int size)
 {
+int i,j,c;
+for(i=0;i<size-1;i++)
+{ for(j=i;j<size;j++)
+	{ if(test[j]>test[i])
+		{ c=test[j];
+			test[j]=test[i];
+			test[i]=c;
+		}
+	}
+}
+printf("\n Now sorting the array in descending order...\n");
+print_array(test,size);
 }
 
 void print_statistics(int a, int b, int c, int d)
 {
+printf("\n The statistics of the array are as follows:");
+printf("\n maximum:%d\n Minimum:%d\n Mean:%d\n Median:%d\n",a,b,c,d);
 }
 
 
