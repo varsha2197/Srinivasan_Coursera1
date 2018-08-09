@@ -1,22 +1,26 @@
 /******************************************************************************
- * Copyright (C) 2017 by Alex Fosdick - University of Colorado
+ * Copyright (C) 2018 by Varsha Srinivasan
  *
  * Redistribution, modification or use of this software in source or binary
  * forms is permitted as long as the files maintain this copyright. Users are 
  * permitted to modify this and use it to learn about the field of embedded
- * software. Alex Fosdick and the University of Colorado are not liable for any
- * misuse of this material. 
+ * software. 
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
- *
- * <Add Extended Description Here>
- *
- * @author <Add FirsName LastName>
- * @date <Add date >
- *
+ * @file stats 
+ * @brief Analyzes and prints statistical data like mean, medium, maximum 
+ * and minimum number present in a char array, followed by sorting the 
+ * array in descending order.
+ *  
+ * This program analyzes an array of unsigned char data items and   
+ * reports analytics on the maximum, minimum, mean, and median of the 
+ * data set. In addition, the array is also reorderedin descnding order, 
+ * i.e., from large to small. All statistics are rounded down to the 
+ * nearest integer.
+ * 
+ * @author Varsha Srinivasan
+ * @date 9th August 2018
  */
 
 
@@ -26,6 +30,7 @@
 
 /* Size of the Data Set */
 #define SIZE (40)
+
 
 void main() {
 
@@ -37,7 +42,45 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
+  int ma,mi,mea,med;
+  printf("Printing initial array");
+  print_array(test,SIZE);
+  sort_array(test,SIZE);
+  ma= find_maximum(test,SIZE);
+  mi= find_minimum(test,SIZE); 
+  mea= find_mean(test,SIZE);					  
+  med= find_median(test,SIZE); 
+  print_statistics(ma,mi,mea,med);
+}
+
+void print_array(unsigned char *t, unsigned int size)
+{
 
 }
+
+int find_maximum(unsigned char *t,  unsigned int size)
+{
+}
+
+int find_minimum(unsigned char *t, unsigned int size)
+{
+}
+
+int find_mean(unsigned char *t,unsigned int size)
+{ 
+}
+
+int find_median(unsigned char *t, unsigned int size)
+{
+}
+
+void sort_array(unsigned char *test, unsigned int size)
+{
+}
+
+void print_statistics(int a, int b, int c, int d)
+{
+}
+
 
 /* Add other Implementation File Code Here */
